@@ -235,7 +235,7 @@ dishRouter
                 "You are not authorized to perform this action."
               );
               err.status = 403;
-              next(err);
+              return next(err);
             }
             if (req.body.rating) {
               dish.comments.id(req.params.commentId).rating = req.body.rating;
@@ -294,7 +294,7 @@ dishRouter
                 "You are not authorized to perform this action."
               );
               err.status = 403;
-              next(err);
+              return next(err);
             }
             dish.comments.id(req.params.commentId).remove();
             dish.save().then((dish) => {
